@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column; background-color: #57504D; height: 100vh; margin: 0; padding: 20px;">
+        <h1 style="color: white;">LIST ROYALTI</h1>
+        <table style="width: 80%; border-collapse: collapse; margin: 0 auto; background-color: #fff; border-radius: 20px; overflow: hidden;">
+            <thead>
+                <tr>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Judul Lagu</th>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Judul Album</th>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Total Play</th>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Total Download</th>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Rate Royalti</th>
+                    <th style="padding: 10px; text-align: left; background-color: #F5743B;">Total Royalti Didapat</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for song in songs %}
+                <tr>
+                    <td style="padding: 10px; text-align: left;">{{ song.title }}</td>
+                    <td style="padding: 10px; text-align: left;">{{ song.album_title }}</td>
+                    <td style="padding: 10px; text-align: center;">{{ song.plays }}</td>
+                    <td style="padding: 10px; text-align: center;">{{ song.downloads }}</td>
+                    <td style="padding: 10px; text-align: left;">{{ song.royalty_rate }}</td>
+                    <td style="padding: 10px; text-align: left;">{{ song.total_royalty }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
